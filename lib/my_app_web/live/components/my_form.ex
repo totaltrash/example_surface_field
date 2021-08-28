@@ -6,32 +6,15 @@ defmodule MyAppWeb.MyForm do
   def render(assigns) do
     ~F"""
     <Context get={Surface.Components.Form, form: form}>
+      <!-- Doing something with form here... -->
       <Form.Inputs for={:inner}>
         <Form.Field name={:some_field}>
-          <Form.Label>
-            Broken Name and Id
-          </Form.Label>
+          <!-- These components have incorrect names and ids >= 0.5.2 -->
+          <Form.Label />
           <Form.TextInput />
           <Form.ErrorTag />
-          <div>
-            <p>
-              You would expect the name/id of the text input to be:
-            </p>
-            <p>
-              <code>parent[inner][some_field] / parent_inner_some_field</code>
-            </p>
-            <p>
-              With surface 0.5.1 that is the case. But in surface 0.5.2, it looks like Field is maybe using the form set in the <code>Context</code>
-              instead of the form set in <code>Inputs</code>, and the name and id are set incorrectly:
-            </p>
-            <p>
-              <code>parent[some_field] / parent_some_field</code>
-            </p>
-          </div>
         </Form.Field>
-        <p>
-          When using the TextInput directly without using a Field, the name and id are set correctly
-        </p>
+        <!-- This is fine -->
         <Form.TextInput field={:some_input}/>
       </Form.Inputs>
     </Context>
