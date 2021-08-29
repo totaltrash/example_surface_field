@@ -35,6 +35,7 @@ defmodule MyApp.MixProject do
     [
       {:phoenix, "~> 1.5.9"},
       {:phoenix_live_view, "~> 0.15.1"},
+      # {:surface, github: "surface-ui/surface", ref: "2e0c7b5a3df4a4cff818cc9c5d85442319fa7e3f"},
       {:surface, "0.5.2"},
       {:floki, ">= 0.30.0", only: :test},
       {:phoenix_html, "~> 2.11"},
